@@ -52,9 +52,12 @@ def show_batch(image_batch, label_batch, class_names):
 
     plt.figure(figsize=(10, 10), dpi=80)
     for n in range(size):
+        plt.rc('font', size=10)
         plt.subplot(sub_size, sub_size, n+1)
         plt.subplots_adjust(left=0.125, bottom=0.1, right=0.9, top=0.9, wspace=0.2, hspace=0.5)
-        plt.title(class_names[label_batch[n]==True][0].title())
+        # plt.title(class_names[label_batch[n]==True][0].title())
+        idx = tf.where(label_batch[n]).numpy()[0][0]
+        plt.title(class_names[idx])
         plt.imshow(image_batch[n])
     plt.show()
 
