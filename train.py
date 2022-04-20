@@ -106,8 +106,8 @@ if __name__ == '__main__':
 
     model = YogaPose(num_classes=args.num_classes)
 
-    train_ds, TRAIN_SIZE = load_data(data_path=args.train_path, img_shape=(224, 224), batch_size=args.batch_size)
-    val_ds, VAL_SIZE = load_data(data_path=args.val_path, img_shape=(224, 224), batch_size=args.batch_size, is_train=False)
+    train_ds, TRAIN_SIZE = load_data(data_path=args.train_path, img_shape=(args.img_size, args.img_size), batch_size=args.batch_size)
+    val_ds, VAL_SIZE = load_data(data_path=args.val_path, img_shape=(args.img_size, args.img_size), batch_size=args.batch_size, is_train=False)
 
     logger.info('Train Data Size : {}'.format(TRAIN_SIZE))
     logger.info('Validation Data Size : {}'.format(VAL_SIZE))
