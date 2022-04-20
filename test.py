@@ -23,7 +23,7 @@ if __name__ == '__main__':
     model = YogaPose(num_classes=args.num_classes)
     optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
 
-    test, TEST_SIZE = load_data(data_path=args.test_path, img_shape=(224, 224), batch_size=32)
+    test, TEST_SIZE = load_data(data_path=args.test_path, img_shape=(args.img_size, args.img_size), batch_size=32)
 
     checkpoint = tf.train.Checkpoint(optimizer=optimizer, model=model)
     checkpoint.restore(args.checkpoint_path)
